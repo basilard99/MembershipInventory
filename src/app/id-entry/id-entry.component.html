@@ -1,1 +1,12 @@
-<p>id-entry works!</p>
+<div style="height: 100%;" fxLayout="column" fxLayoutAlign="center center">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field>
+      <mat-label>Membership ID</mat-label>
+      <input matInput formControlName="memberId">
+    </mat-form-field>
+    <button type="submit" mat-button>Search</button>
+  </form>
+</div>
+
+
+  
