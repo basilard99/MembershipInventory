@@ -1,0 +1,19 @@
+<div style="height: 100%;" fxLayout="column" fxLayoutAlign="center center">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{(Member | async)?.Name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div fxLayout="column">
+                <span><b>ID:</b> {{(Member | async)?.MemberId}}</span>
+                <span><b>Expiration Date:</b> {{(Member | async)?.ExpirationDate?.toDateString()}}</span>
+                <span><b>Status:</b>
+                    <div style="background-color: red; color: white;" *ngIf="(Member | async)?.Status === 'Expired'">Expired</div>
+                    <div style="background-color: orange; color: white" *ngIf="(Member | async)?.Status === 'Renewal'">Needs Renewed</div>
+                    <div style="background-color: green; color: white" *ngIf="(Member | async)?.Status === 'Current'">Current</div>
+                    <div style="background-color: red; color: white" *ngIf="(Member | async)?.Status === 'Unknown'">Unknown</div>                    
+                </span>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
